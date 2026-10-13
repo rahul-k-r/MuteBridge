@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Mute Bridge",
+  "version": "0.1.0",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtchqLLhpwCJqHmna3Pyc8VH/3L5HmYorYWsWhNrfTeXe22uuX+kzbq1RzjH1cq26WECj/6B3X+vWuF9c0pEoxuVHl2ieTxJr8V3vRFe+ALi7QK0bBxrU8MYf33R7SA853tM8xbrUWIcKyR274rc2OLwx1YxkwuaNm8zVCTm0Qm7m68AzBoyMHBJZWn8PEqcT98S/26LFYCkDDR/Sv7E8t49VdsM4mDc9VE0Qh8+mrIjbgp6aO2sm3H0E0LIo9viURMPHOPcwPhdQliLDcVV/aVGgsHFN0hmGSoUsk5IP1Ux/1VCFnGZYP+B331G9mNFqN+/RWZjD1ySsWC6KbeX2KQIDAQAB",
+  "description": "Mirrors the Windows system mic mute (Win+Alt+K) into Google Meet and Zoom web.",
+  "permissions": ["nativeMessaging"],
+  "host_permissions": ["https://meet.google.com/*", "https://*.zoom.us/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*", "https://*.zoom.us/*"],
+      "js": ["content.js"],
+      "all_frames": true
+    }
+  ]
+}
