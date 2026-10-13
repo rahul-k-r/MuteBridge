@@ -20,19 +20,20 @@ Chrome launches and stops the host automatically. There's nothing to run in the 
 ## Requirements
 
 - Windows 11 and Google Chrome
-- To build: .NET 8 SDK and the Visual Studio C++ build tools ("Desktop development with C++"),
-  which Native AOT needs
+- To build from source: .NET 8 SDK and the Visual Studio C++ build tools ("Desktop development
+  with C++"), which Native AOT needs
 
 ## Install
 
-1. Build the host:
-   ```powershell
-   .\build.ps1
-   ```
-2. Double-click `dist\MuteBridgeHost.exe`. It copies itself to `%LOCALAPPDATA%\MuteBridge` and
-   registers with Chrome. The exe is unsigned, so Windows SmartScreen may warn on first run.
+1. Get the host:
+   - **From a release:** download `MuteBridgeHost.exe` and the source code zip from the
+     [latest release](../../releases/latest), and extract the zip.
+   - **From source:** run `.\build.ps1`. The exe is written to `dist\MuteBridgeHost.exe`.
+2. Double-click `MuteBridgeHost.exe`. It copies itself to `%LOCALAPPDATA%\MuteBridge` and registers
+   with Chrome, after which you can delete the downloaded exe. It's unsigned, so Windows SmartScreen
+   may warn: click **More info > Run anyway**.
 3. In `chrome://extensions`, enable **Developer mode**, click **Load unpacked**, and select the
-   `extension` folder.
+   `extension` folder from the source. Keep that folder where it is; Chrome loads it from there.
 4. Fully quit Chrome (tray icon > **Exit**) and reopen it. Chrome may not see a newly registered
    host until it restarts.
 
